@@ -1,6 +1,6 @@
 # How to solve most basic RSA CTF's challenges
 
-I'll assume you're using some linux distro to solve challenges. Don't use Windows to solve crypto challenges.
+I'll assume you're using some linux distro to solve challenges. Don't use Windows <del>to solve crypto challenges</del>.
 
 ### RSA : How it works
 
