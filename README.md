@@ -67,12 +67,23 @@ sLDcjcP+cYxVPsJlRE0BSI0ukFhlv4OhAiQJ9I7aAuUNDoPDccd5gWnJ2G397VIP
 ```
   * openssl 
 
-   Not much to say, i hope you know it already. If not : http://users.dcc.uchile.cl/~pcamacho/tutorial/crypto/openssl/openssl_intro.html
+   Not much to say, I hope you know it already. If not : http://users.dcc.uchile.cl/~pcamacho/tutorial/crypto/openssl/openssl_intro.html
 
+### What you may have to do
+
+From what I experienced in previous ctf, here's what you may have to do in order to solve an RSA challenge :
+
+  * Recover private key from public key and decrypt the message
+
+   In those cases, you will be provided one or more RSA public key. That means you know ```modulus``` and ```public exponent```. If you factorize the ```modulus``` you will be able to recover private key.
+
+  * Use math to break the cipher without private key
+
+	Those kind of RSA challenges are usually the trickiest ones. Depending on the ctf level, you may need from basic to medium math understanding. I must recommand the [stackexchange crypto forum](https://crypto.stackexchange.com/) which contains numerous valuable threads.
 
 ### What you should look for
 
-  * In most cases, you'll be provided a public key so :
+  * In most cases, you will be provided a public key so :
 
    Print modulus : `openssl rsa -pubin -in <pubkey> -noout -modulus`  
    Print exponent : `openssl rsa -pubin -in <pubkey> -noout -text`
@@ -89,9 +100,9 @@ sLDcjcP+cYxVPsJlRE0BSI0ukFhlv4OhAiQJ9I7aAuUNDoPDccd5gWnJ2G397VIP
 
   * Public exponent and modulus of the same size
 
-   This means you are face a **Wiener attack** challenge 100% of time.  
+   This means you are facing a **Wiener attack** challenge 100% of time.  
    All the details here : https://en.wikipedia.org/wiki/Wiener%27s_attack  
-   If you're a **lazy fuck** : https://ctfcrew.org/writeup/87  
+   If you are a **lazy fuck** : https://ctfcrew.org/writeup/87  
 
 ### If things get tricky
 
