@@ -51,7 +51,8 @@ d = long(gmpy.invert(e,phi))
 
 key = RSA.construct((n,e,d))
 print key.exportKey()
-
+```
+```
 -----BEGIN RSA PRIVATE KEY-----
 MIIBWgIBAAJIAfHq7sjugYLULdhlHxphzwoMT23pEIaQL2vrlMeQWYtc5qftvwhU
 sF+Lw6hs7SfWoYtHUe8ApIayz97yWTp95GapLGElccL7AgMBAAECSAGpAxViFBwe
