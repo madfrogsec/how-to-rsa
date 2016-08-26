@@ -43,8 +43,8 @@ RSA is an asymmetric cryptosystem whose strength lies in the difficulty of facto
 
   * In most cases, you'll be provided a public key so :
 
-   `openssl rsa -pubin -in <pubkey> -noout -modulus` will print modulus  
-   `openssl rsa -pubin -in <pubkey> -noout -text` will print exponent
+   Print modulus : `openssl rsa -pubin -in <pubkey> -noout -modulus`
+   Print exponent : `openssl rsa -pubin -in <pubkey> -noout -text`
 
 This is obvious but hey, that's how you solve 90% of RSA challenges during CTF.
 
