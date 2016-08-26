@@ -1,5 +1,7 @@
 # How to solve most basic RSA CTF's challenges
 
+I'll assume you're using some linux distro to solve challenges. Don't use Windows to solve challenges.
+
 ### RSA : How it works
 
 If you want a full explanation on RSA mechanics, just go to https://en.wikipedia.org/wiki/RSA_(cryptosystem), but here's a quick review.
