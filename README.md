@@ -16,7 +16,7 @@ RSA is an asymmetric cryptosystem whose strength lies in the difficulty of facto
   * pick public exponant `e` prime with φ(n)
   * calculate private exponant `d` : `d = e ** -1 mod φ(n)` 
   * `((n,e))` is your public key
-  * `((n,e,d)) is your private key
+  * `((n,e,d))` is your private key
 
 #### Encryption
 
