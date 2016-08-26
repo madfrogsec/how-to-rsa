@@ -89,9 +89,9 @@ sLDcjcP+cYxVPsJlRE0BSI0ukFhlv4OhAiQJ9I7aAuUNDoPDccd5gWnJ2G397VIP
 
   * Public exponent and modulus of the same size
 
-   This means you are face a Wiener attack challenge 100% of time.  
+   This means you are face a **Wiener attack** challenge 100% of time.  
    All the details here : https://en.wikipedia.org/wiki/Wiener%27s_attack  
-   If you're a lazy fuck : https://ctfcrew.org/writeup/87  
+   If you're a **lazy fuck** : https://ctfcrew.org/writeup/87  
 
 ### If things get tricky
 
