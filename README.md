@@ -37,9 +37,36 @@ RSA is an asymmetric cryptosystem whose strength lies in the difficulty of facto
    
    This is an invaluable tool. Might even steal your girlfriend. Allow you to easily generate or manipulate keys, encrypt, decrypt and so much more, in Python of course. Check it here : https://www.dlitz.net/software/pycrypto/ !
 
+```python
+from Crypto.PublicKey import RSA
+import gmpy
+
+n = long(1879122713354939863526808845038840924564261365908865397815391755146897421979943528019195029843863294113251347949263889033893773449037418623195560116319413481180023063954171)
+p = long(32807508642406493731255550386419906436234252673843934782493839340840638518957594639763)
+q = long(57277214610743530253697304822463291469530207492874937459384849711645985217113052071417)
+e = long(65537)
+
+phi = (p-1)*(q-1)
+d = long(gmpy.invert(e,phi))
+
+key = RSA.construct((n,e,d))
+print key.exportKey()
+
+-----BEGIN RSA PRIVATE KEY-----
+MIIBWgIBAAJIAfHq7sjugYLULdhlHxphzwoMT23pEIaQL2vrlMeQWYtc5qftvwhU
+sF+Lw6hs7SfWoYtHUe8ApIayz97yWTp95GapLGElccL7AgMBAAECSAGpAxViFBwe
+lYiwjth2x4hXllxygB+oDQk9gHCVzARzLhCAxQrXMT8pqwUpAAIMOMUxEItPz2cP
+E0NnylI2qiZNO9mgK9sVMQIkEONKZoIvsKwDRd6Sz5yrFBcDa9FGKA2fZGXL0/QM
+HjW9Z/2TAiQde9i/vqSeH0hwVo4gluOvLEREtcL4dvVFeBDnEUfRmlBuxfkCJA/5
+oojDwC9FGLeAa6p/Toprlq3oQpBjCpOjhCQVKV1ugqSbhwIkDeIfckrHIV4BskRP
+sLDcjcP+cYxVPsJlRE0BSI0ukFhlv4OhAiQJ9I7aAuUNDoPDccd5gWnJ2G397VIP
+5e7W1Fhe7YnbO57hhcA=
+-----END RSA PRIVATE KEY-----
+```
   * openssl 
 
    Not much to say, i hope you know it already. If not : http://users.dcc.uchile.cl/~pcamacho/tutorial/crypto/openssl/openssl_intro.html
+
 
 ### What you should look for
 
