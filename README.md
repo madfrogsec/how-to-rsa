@@ -46,7 +46,22 @@ RSA is an asymmetric cryptosystem whose strength lies in the difficulty of facto
    Print modulus : `openssl rsa -pubin -in <pubkey> -noout -modulus`  
    Print exponent : `openssl rsa -pubin -in <pubkey> -noout -text`
 
-This is obvious but hey, that's how you solve 90% of RSA challenges during CTF.
+  * Convert modulus to decimal and paste it at http://factordb.com
+
+   If the challenge is easy enough, this should give you two prime numbers `p` and `q`.
+
+  * Public exponent and modulus of the same size
+
+  * No-brain factorization
+
+   Sometimes you just need to run a general factorization algorithm. It could work.  
+   Fermat : https://github.com/willyrv/FactoringNumbers  
+   Msieve : https://github.com/radii/msieve  
+
+  * Run some factorization algorithms
+
+   This could take some time so better run them early
+
 
 ### If things get tricky
 
