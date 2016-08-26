@@ -54,7 +54,7 @@ RSA is an asymmetric cryptosystem whose strength lies in the difficulty of facto
 
   * No-brain factorization
 
-   Sometimes you just need to run a general factorization algorithm. It could work.  
+   Sometimes you just need to run a general factorization algorithm. It could work. PS: you are brainless. Not the tools.
    Fermat : https://github.com/willyrv/FactoringNumbers  
    Msieve : https://github.com/radii/msieve  
 
