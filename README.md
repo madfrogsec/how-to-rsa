@@ -92,9 +92,9 @@ From what I experienced in previous ctf, here's what you may have to do in order
 
    If the challenge is easy enough, this should give you two prime numbers `p` and `q`.
 
-  * No-brain factorization
+  * Factorization algorithms
 
-   Sometimes you just need to run a general factorization algorithm. It could work. PS: you are brainless. Not the tools.
+   Sometimes you just need to run a general factorization algorithm. It could work. 
    Fermat : https://github.com/willyrv/FactoringNumbers  
    Msieve : https://github.com/radii/msieve  
 
