@@ -13,10 +13,10 @@ RSA is an asymmetric cryptosystem whose strength lies in the difficulty of facto
 #### Key generation
 
   * pick to prime numbers `p` and `q`
-  * calculate modulo `N` : `N = p * q`
+  * calculate modulus `N` : `N = p * q`
   * calculate `φ(n) = (p - 1) * (q - 1)`
-  * pick public exponant `e` prime with `φ(n)`
-  * calculate private exponant `d` : `d = e ** -1 mod φ(n)` 
+  * pick public exponent `e` prime with `φ(n)`
+  * calculate private exponent `d` : `d = e ** -1 mod φ(n)` 
   * `((n,e))` is your public key
   * `((n,e,d))` is your private key
 
@@ -52,18 +52,17 @@ RSA is an asymmetric cryptosystem whose strength lies in the difficulty of facto
 
    If the challenge is easy enough, this should give you two prime numbers `p` and `q`.
 
-  * Public exponent and modulus of the same size
-
   * No-brain factorization
 
    Sometimes you just need to run a general factorization algorithm. It could work. PS: you are brainless. Not the tools.
    Fermat : https://github.com/willyrv/FactoringNumbers  
    Msieve : https://github.com/radii/msieve  
 
-  * Run some factorization algorithms
+  * Public exponent and modulus of the same size
 
-   This could take some time so better run them early
-
+   This means you are face a Wiener attack challenge 100% of time.  
+   All the details here : https://en.wikipedia.org/wiki/Wiener%27s_attack  
+   If you're a lazy fuck : https://ctfcrew.org/writeup/87  
 
 ### If things get tricky
 
