@@ -13,7 +13,7 @@ RSA is an asymmetric cryptosystem whose strength lies in the difficulty of facto
   * pick to prime numbers `p` and `q`
   * calculate modulo `N` : `N = p * q`
   * calculate `φ(n) = (p - 1) * (q - 1)`
-  * pick public exponant `e` prime with φ(n)
+  * pick public exponant `e` prime with `φ(n)`
   * calculate private exponant `d` : `d = e ** -1 mod φ(n)` 
   * `((n,e))` is your public key
   * `((n,e,d))` is your private key
@@ -28,7 +28,25 @@ RSA is an asymmetric cryptosystem whose strength lies in the difficulty of facto
 
   * `m = c ** d mod N`
 
+
+### Useful tools
+
+  * pyCrypto
+   
+   This is an invaluable tool. Might even steal your girlfriend. Allow you to easily generate or manipulate keys, encrypt, decrypt and so much more, in Python of course. Check it here : https://www.dlitz.net/software/pycrypto/ !
+
+  * openssl 
+
+   Not much to say, i hope you know it already. If not : http://users.dcc.uchile.cl/~pcamacho/tutorial/crypto/openssl/openssl_intro.html
+
 ### What you should look for
+
+  * In most cases, you'll be provided a public key so :
+
+   `openssl rsa -pubin -in <pubkey> -noout -modulus` will print modulus
+   `openssl rsa -pubin -in <pubkey> -noout -text` will print exponent
+
+This is obvious but hey, that's how you solve 90% of RSA challenges during CTF.
 
 ### If things get tricky
 
