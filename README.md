@@ -10,11 +10,11 @@ RSA is an asymmetric cryptosystem whose strength lies in the difficulty of facto
 
 #### Key generation
 
-  * pick to prime numbers p and q
-  * calculate modulo : `N = p * q`
+  * pick to prime numbers `p` and `q`
+  * calculate modulo `N` : `N = p * q`
   * calculate `φ(n) = (p - 1) * (q - 1)`
-  * pick public exponant e prime with φ(n)
-  * calculate private exponant d : `d = e^-1 mod φ(n)` 
+  * pick public exponant `e` prime with φ(n)
+  * calculate private exponant `d` : `d = e^-1 mod φ(n)` 
 
 ### What you should look for
 
