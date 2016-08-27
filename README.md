@@ -121,7 +121,7 @@ m = c0 ** 3 % n0
 m = c1 ** 3 % n1 
 m = c2 ** 3 % n2
 
-# Here's how this is done::
+# Here's how this is done thanks to the CRT:
 m =  c0 * (n2*n3) * [(n2*n3) ** −1] % n0 
    + c1 * (n1*n3) * [(n1*n3) ** −1] % n1
    + c2 * (n1*n2) * [(n1*n2) ** −1] % n2
