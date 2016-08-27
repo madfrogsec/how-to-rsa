@@ -120,5 +120,13 @@ n0, n1, n2: moduli
 m = c0 ** 3 % n0
 m = c1 ** 3 % n1 
 m = c2 ** 3 % n2
+
+# Here's how this is done::
+m =  c0 * (n2*n3) * [(n2*n3) ** −1] % n0 
+   + c1 * (n1*n3) * [(n1*n3) ** −1] % n1
+   + c2 * (n1*n2) * [(n1*n2) ** −1] % n2
+
+# with [x ** -1] % n the multiplicative inverse of x modulo n
+# use gmpy.invert(x,n) for this calculation in python
 ```
 
