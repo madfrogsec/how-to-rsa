@@ -122,11 +122,16 @@ m = c1 ** 3 % n1
 m = c2 ** 3 % n2
 
 # Here's how this is done thanks to the CRT:
-m =  c0 * (n2*n3) * [(n2*n3) ** −1] % n0 
+M =  c0 * (n2*n3) * [(n2*n3) ** −1] % n0 
    + c1 * (n1*n3) * [(n1*n3) ** −1] % n1
    + c2 * (n1*n2) * [(n1*n2) ** −1] % n2
 
+# Calculate the cubic root of this result to recover pt:
+plaintext = M ** (1/3) 
+
 # with [x ** -1] % n the multiplicative inverse of x modulo n
 # use gmpy.invert(x,n) for this calculation in python
+
+
 ```
 
