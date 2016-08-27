@@ -100,10 +100,25 @@ From what I experienced in previous ctf, here's what you may have to do in order
 
   * Public exponent and modulus of the same size
 
-   This means you are facing a **Wiener attack** challenge 100% of time.  
+   This means you are facing a **Wiener attack** challenge 100% of the time.  
    All the details here : https://en.wikipedia.org/wiki/Wiener%27s_attack  
    If you are a **lazy fuck** : https://ctfcrew.org/writeup/87  
 
-### If things get tricky
+  * Low public exponent
 
- 
+   A low public exponent (like 0x03) means you should use the Chinese Remainder Theorem  
+   Those kind of RSA challenges usualy implies one encrypted message send to three people. You'll be given three public keys and three ciphertexts (from the same plaintext)   
+   If so, here's how you can recover the plaintext assuming e = 3:
+
+```
+# Let's say:
+c0, c1, c2: ciphertexts
+n0, n1, n2: moduli
+```
+```
+# We want to solve the following system:
+m = c0 ** 3 % n0
+m = c1 ** 3 % n1 
+m = c2 ** 3 % n2
+```
+
