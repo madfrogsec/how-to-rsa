@@ -106,8 +106,8 @@ From what I experienced in previous ctf, here's what you may have to do in order
 
   * Public exponent = 3
 
-   A low public exponent (like 0x03) means you should use the **Chinese Remainder Theorem**   
-   Those kind of RSA challenges usualy implies one encrypted message send to three people. You'll be given three public keys and three ciphertexts (from the same plaintext)   
+   A low public exponent (like 0x03) means you should use the **Chinese Remainder Theorem**.   
+   Those kind of RSA challenges usualy implies one encrypted message send to three people. You'll be given three public keys and three ciphertexts (from the same plaintext).   
    If so, here's how you can recover the plaintext assuming e = 3:
 
 ```
@@ -131,8 +131,5 @@ M =  c0 * (n2*n3) * [(n2*n3) ** −1] % n0
 
 # Calculate the cubic root of this result to recover pt:
 plaintext = M ** (1/3) 
-
-
-
 ```
 
