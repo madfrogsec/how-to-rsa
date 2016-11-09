@@ -16,7 +16,7 @@ RSA is an asymmetric cryptosystem whose strength lies in the difficulty of facto
   * calculate modulus `N` : `N = p * q`
   * calculate `φ(n) = (p - 1) * (q - 1)`
   * pick public exponent `e` prime with `φ(n)`
-  * calculate private exponent `d` : `d = e ** -1 mod φ(n)` 
+  * calculate private exponent `d` : `d = e ** -1 mod φ(n)`
   * `((n,e))` is your public key
   * `((n,e,d))` is your private key
 
@@ -34,7 +34,7 @@ RSA is an asymmetric cryptosystem whose strength lies in the difficulty of facto
 ### Useful tools
 
   * pyCrypto
-   
+
    This is an invaluable tool. Might even steal your girlfriend. Allow you to easily generate or manipulate keys, encrypt, decrypt and so much more, in Python of course. Check it here : https://www.dlitz.net/software/pycrypto/ !
 
 ```python
@@ -65,7 +65,7 @@ sLDcjcP+cYxVPsJlRE0BSI0ukFhlv4OhAiQJ9I7aAuUNDoPDccd5gWnJ2G397VIP
 5e7W1Fhe7YnbO57hhcA=
 -----END RSA PRIVATE KEY-----
 ```
-  * openssl 
+  * openssl
 
    Not much to say, I hope you know it already. If not : http://users.dcc.uchile.cl/~pcamacho/tutorial/crypto/openssl/openssl_intro.html
 
@@ -111,18 +111,18 @@ From what I experienced in previous ctf, here's what you may have to do in order
    If so, here's how you can recover the plaintext assuming e = 3:
 
 ```
-# Let's say:
+# Let's have:
 c0, c1, c2: ciphertexts
 n0, n1, n2: moduli
 ```
 ```
 # We want to solve the following system:
 m = c0 ** 3 % n0
-m = c1 ** 3 % n1 
+m = c1 ** 3 % n1
 m = c2 ** 3 % n2
 
 # Here's how this is done thanks to the CRT:
-M =  c0 * (n2*n3) * [(n2*n3) ** −1] % n0 
+M =  c0 * (n2*n3) * [(n2*n3) ** −1] % n0
    + c1 * (n1*n3) * [(n1*n3) ** −1] % n1
    + c2 * (n1*n2) * [(n1*n2) ** −1] % n2
 
@@ -130,6 +130,26 @@ M =  c0 * (n2*n3) * [(n2*n3) ** −1] % n0
 # use gmpy.invert(x,n) for this calculation in python
 
 # Calculate the cubic root of this result to recover pt:
-plaintext = M ** (1/3) 
+plaintext = M ** (1/3)
 ```
 
+  * Faulty signature with CRT optimization
+
+  I recently discovered a paper about a very interesting attack implying the Chinese Remainder Theorem. Long story short, this theorem says that if you're working in Z/nZ (ie. modulus n) and you have factors of n (e.g. p and q) which are coprime pairwise, you can split the computation in Z/qZ * Z/pZ. This is very interesting as it is much faster to do so than working with huge modulus.
+
+  Florian Weiner's paper : https://people.redhat.com/~fweimer/rsa-crt-leaks.pdf
+
+  When a message is signed with an RSA private key with CRT optimization, the calculus are split as in Z/qZ and Z/pZ. If a fault happen in the Z/qZ part, an attacker could deduce p (thus q -> d -> private key) with the faulty signature and the original message and vice versa. This is done like that:
+
+```
+# Let's have:
+y: faulty signature
+x: original message
+e: public exponent
+n: modulus
+```
+```
+q = gmpy.gcd(pow(y,e)-x,n)
+p = n / q
+d = gmpy.invert(e,(p-1)*(q-1))
+```
