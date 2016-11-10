@@ -139,7 +139,10 @@ plaintext = M ** (1/3)
   
   I recently discovered a paper about a very interesting attack implying the Chinese Remainder Theorem. Long story short, this theorem says that if you're working in Z/nZ (ie. modulus n) and you have factors of n (e.g. p and q) which are coprime pairwise, you can split the computation in Z/qZ * Z/pZ. This is very interesting as it is much faster to do so than working with huge modulus.
 
-  When a message is signed with an RSA private key with CRT optimization, the calculus are split as in Z/qZ and Z/pZ. If a fault happen in the Z/qZ part, an attacker could deduce p (thus q -> d -> private key) with the faulty signature and the original message and vice versa. This is done like that:
+  When a message is signed with an RSA private key with CRT optimization, the calculus are split as in Z/qZ and Z/pZ. If a fault happen in the Z/qZ part, an attacker could deduce p (thus q -> d -> private key) with the faulty signature and the original message and vice versa. 
+
+  So, if you encounter a challenge with a faulty signature story maybe you
+should try this:
 
 ```
 # Let's have:
